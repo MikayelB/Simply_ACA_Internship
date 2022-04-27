@@ -61,8 +61,8 @@ const rotate90DegNoDiagonals = (matrix) => {
     let tmpArr = [];
 
     for (let i = matrix.length - 1; i >= 0; i--) {
-      if (j == i) {
-        break;
+      if (j == i || j + i == innerArr.length) {
+        continue;
       } else {
         tmpArr.push(matrix[i][j]);
       }
@@ -87,13 +87,13 @@ const calculateRotations = (deg) => {
 
 //-----------------Tests--------------------
 
-//// with diagonal changes
-console.log(matrix);
-// console.log(rotate90Deg(matrix));
-console.log(rotate(matrix, 180));
-console.log(matrix2);
-// console.log(rotate90Deg(matrix2));
-console.log(rotate(matrix2, 90));
+// //// with diagonal changes
+// console.log(matrix);
+// // console.log(rotate90Deg(matrix));
+// console.log(rotate(matrix, 180));
+// console.log(matrix2);
+// // console.log(rotate90Deg(matrix2));
+// console.log(rotate(matrix2, 90));
 
 // without diagonal changes
 console.log(matrix);

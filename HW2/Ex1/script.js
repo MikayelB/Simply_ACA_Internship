@@ -43,7 +43,6 @@ function solution(grid) {
     for (let c = 0; c < grid.length; c++) {
       // c = column
 
-      // debugger;
       if (grid[r][c] !== ".") {
         if (rows[r].includes(grid[r][c]) || columns[c].includes(grid[r][c]))
           return false;

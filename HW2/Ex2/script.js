@@ -37,4 +37,28 @@ const roadRegister = [
 
 function solution(roadRegister) {
   // Implementation
+
+  for (let i = 0; i < roadRegister.length; i++) {
+    outArr = roadRegister[i];
+    numOfOut = 0;
+    numOfIn = 0;
+
+    // debugger;
+    // adding the number of outwards going roads from each number/city
+    for (let j = 0; j < outArr.length; j++) {
+      if (outArr[j] === true) numOfOut++;
+    }
+    // adding the number of inwards coming roads for that specific number/city
+    for (let k = 0; k < roadRegister.length; k++) {
+      if (roadRegister[k][i] === true) numOfIn++;
+    }
+
+    // comparing the total numbers of roads coming in and going out
+    if (numOfIn !== numOfOut) return false;
+  }
+  return true;
 }
+
+console.log(solution(roadRegister1));
+console.log(solution(roadRegister2));
+console.log(solution(roadRegister));

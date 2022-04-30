@@ -46,11 +46,11 @@ function solution(roadRegister) {
     // debugger;
     // adding the number of outwards going roads from each number/city
     for (let j = 0; j < outArr.length; j++) {
-      if (outArr[j] === true) numOfOut++;
+      if (outArr[j]) numOfOut++;
     }
     // adding the number of inwards coming roads for that specific number/city
     for (let k = 0; k < roadRegister.length; k++) {
-      if (roadRegister[k][i] === true) numOfIn++;
+      if (roadRegister[k][i]) numOfIn++;
     }
 
     // comparing the total numbers of roads coming in and going out

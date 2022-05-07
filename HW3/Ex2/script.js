@@ -8,6 +8,7 @@
 // the output should be
 // solution(chessPlayers, finishedMatches) = [[0, 3], [1, 3], [2, 3]]
 
+//------------------Helper functions--------------------
 //// multiplyRange and combinChoose are for checking the size of the finishedMatches
 // helper for below function
 function multiplyRange(a, b) {
@@ -37,12 +38,13 @@ function combinChoose(n, r) {
 // console.log(combinChoose(5, 2));
 // console.log(combinChoose(185, 33));
 
+//------------------Solution--------------------
 const solution = (chessPlayers, finishedMatches) => {
   if (finishedMatches.length === combinChoose(chessPlayers, 2)) {
     return console.log("All matches are done");
   }
 
-  // adding all the possible combination of games to the array below
+  //// adding all the possible combination of games to the array below
   let toBePlayed = [];
   for (let i = 0; i < chessPlayers; i++) {
     for (let j = i + 1; j < chessPlayers; j++) {
@@ -51,17 +53,15 @@ const solution = (chessPlayers, finishedMatches) => {
   }
   console.log(toBePlayed);
 
-  /////////////////////
-
-  let tmp = [];
-
-  // sorting the finishedMatches array and its nested arrays
+  //// sorting the finishedMatches array and its nested arrays
   for (let i = 0; i < finishedMatches.length; i++) {
     finishedMatches[i].sort();
   }
   finishedMatches.sort();
 
-  // comparing everything
+  let tmp = [];
+
+  //// comparing everything and adding to tmp
   for (let i = 0; i < toBePlayed.length; i++) {
     let count = 0;
 
@@ -80,11 +80,15 @@ const solution = (chessPlayers, finishedMatches) => {
       }
     }
   }
+
+  // changing references
   toBePlayed = tmp;
 
   // console.log(toBePlayed);
   return toBePlayed;
 };
+
+//------------------Testing--------------------
 
 const finishedMatches = [
   [0, 1],
@@ -92,5 +96,4 @@ const finishedMatches = [
   [2, 0],
 ];
 
-// solution(4, finishedMatches);
 console.log(solution(4, finishedMatches));

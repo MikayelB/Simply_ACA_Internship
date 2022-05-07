@@ -50,6 +50,40 @@ const solution = (chessPlayers, finishedMatches) => {
     }
   }
   console.log(toBePlayed);
+
+  /////////////////////
+
+  let tmp = [];
+
+  // sorting the finishedMatches array and its nested arrays
+  for (let i = 0; i < finishedMatches.length; i++) {
+    finishedMatches[i].sort();
+  }
+  finishedMatches.sort();
+
+  // comparing everything
+  for (let i = 0; i < toBePlayed.length; i++) {
+    let count = 0;
+
+    for (let j = 0; j < finishedMatches.length; j++) {
+      let arr1 = toBePlayed[i];
+      let arr2 = finishedMatches[j];
+
+      // debugger;
+      if (JSON.stringify(arr1) === JSON.stringify(arr2)) {
+        break;
+      } else {
+        count++;
+      }
+      if (count === finishedMatches.length) {
+        tmp.push(arr1);
+      }
+    }
+  }
+  toBePlayed = tmp;
+
+  // console.log(toBePlayed);
+  return toBePlayed;
 };
 
 const finishedMatches = [
@@ -58,4 +92,5 @@ const finishedMatches = [
   [2, 0],
 ];
 
-solution(4, finishedMatches);
+// solution(4, finishedMatches);
+console.log(solution(4, finishedMatches));
